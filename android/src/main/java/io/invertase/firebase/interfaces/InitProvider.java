@@ -17,12 +17,6 @@ package io.invertase.firebase.interfaces;
  *
  */
 
-import com.facebook.react.bridge.WritableMap;
-
-public interface NativeEvent {
-  String getEventName();
-
-  WritableMap getEventBody();
-
-  String getFirebaseAppName();
+public interface InitProvider {
+  String getEmptyProviderAuthority();
 }

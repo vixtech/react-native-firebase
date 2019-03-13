@@ -1,4 +1,4 @@
-package io.invertase.firebase.interfaces;
+package io.invertase.firebase.app;
 
 /*
  * Copyright (c) 2016-present Invertase Limited & Contributors
@@ -17,12 +17,15 @@ package io.invertase.firebase.interfaces;
  *
  */
 
-import com.facebook.react.bridge.WritableMap;
+import io.invertase.firebase.BuildConfig;
+import io.invertase.firebase.common.ReactNativeFirebaseInitProvider;
 
-public interface NativeEvent {
-  String getEventName();
+public class ReactNativeFirebaseAppInitProvider extends ReactNativeFirebaseInitProvider {
+  private static final String EMPTY_APPLICATION_ID_PROVIDER_AUTHORITY =
+    BuildConfig.APPLICATION_ID + ".reactnativefirebaseappinitprovider";
 
-  WritableMap getEventBody();
-
-  String getFirebaseAppName();
+  @Override
+  public String getEmptyProviderAuthority() {
+    return EMPTY_APPLICATION_ID_PROVIDER_AUTHORITY;
+  }
 }

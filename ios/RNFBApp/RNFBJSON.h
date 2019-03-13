@@ -1,6 +1,4 @@
-package io.invertase.firebase.interfaces;
-
-/*
+/**
  * Copyright (c) 2016-present Invertase Limited & Contributors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,12 +15,18 @@ package io.invertase.firebase.interfaces;
  *
  */
 
-import com.facebook.react.bridge.WritableMap;
+#import <Foundation/Foundation.h>
 
-public interface NativeEvent {
-  String getEventName();
+@interface RNFBJSON : NSObject
 
-  WritableMap getEventBody();
+- (BOOL)contains:(NSString *)key;
 
-  String getFirebaseAppName();
-}
+- (BOOL)getBooleanValue:(NSString *)key defaultValue:(BOOL)defaultValue;
+
+- (NSString *)getStringValue:(NSString *)key defaultValue:(NSString *)defaultValue;
+
+- (NSDictionary *)getAll;
+
++ (RNFBJSON *)shared;
+
+@end

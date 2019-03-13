@@ -1,6 +1,4 @@
-package io.invertase.firebase.interfaces;
-
-/*
+/**
  * Copyright (c) 2016-present Invertase Limited & Contributors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,12 +15,9 @@ package io.invertase.firebase.interfaces;
  *
  */
 
-import com.facebook.react.bridge.WritableMap;
+#import <React/RCTConvert.h>
+#import <FirebaseCore/FirebaseCore.h>
 
-public interface NativeEvent {
-  String getEventName();
-
-  WritableMap getEventBody();
-
-  String getFirebaseAppName();
-}
+@interface RCTConvert (FIRApp)
++ (FIRApp *)firAppFromString:(NSString *)appName;
+@end
