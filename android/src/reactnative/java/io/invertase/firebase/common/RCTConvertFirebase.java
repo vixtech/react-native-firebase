@@ -44,8 +44,8 @@ public class RCTConvertFirebase {
     FirebaseOptions appOptions = firebaseApp.getOptions();
 
     Map<String, Object> root = new HashMap<>();
-    Map<String, Object> appConfig = new HashMap<>();
     Map<String, Object> options = new HashMap<>();
+    Map<String, Object> appConfig = new HashMap<>();
 
     appConfig.put("name", name);
     appConfig.put("automaticDataCollectionEnabled", firebaseApp.isDataCollectionDefaultEnabled());
@@ -123,10 +123,10 @@ public class RCTConvertFirebase {
    * @param map   WritableMap target map to write the value to
    */
   @SuppressWarnings("unchecked")
-  public static void mapPutValue(String key, @Nullable Object value, WritableMap map) {
+  public static WritableMap mapPutValue(String key, @Nullable Object value, WritableMap map) {
     if (value == null) {
       map.putNull(key);
-      return;
+      return map;
     }
 
     String type = value.getClass().getName();
@@ -172,6 +172,8 @@ public class RCTConvertFirebase {
           map.putNull(key);
         }
     }
+
+    return map;
   }
 
   public static WritableMap readableMapToWritableMap(ReadableMap map) {
