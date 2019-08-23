@@ -1,4 +1,4 @@
-/*
+/**
  * Copyright (c) 2016-present Invertase Limited & Contributors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,9 +15,10 @@
  *
  */
 
-import { getFirebaseRoot } from './internal/registry/namespace';
+#import <Foundation/Foundation.h>
 
-export const firebase = getFirebaseRoot();
-export utils from './utils';
+#import <React/RCTBridgeModule.h>
 
-export default firebase;
+@interface RNFBUtilsModule : NSObject <RCTBridgeModule>
+
+@end

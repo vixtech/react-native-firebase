@@ -15,9 +15,18 @@
  *
  */
 
-import { getFirebaseRoot } from './internal/registry/namespace';
+describe('utils()', () => {
+  describe('namespace', () => {
+    it('accessible from firebase.app()', () => {
+      const app = firebase.app();
+      should.exist(app.utils);
+      app.utils().app.should.equal(app);
+    });
+  });
 
-export const firebase = getFirebaseRoot();
-export utils from './utils';
-
-export default firebase;
+  describe('isRunningInTestLab', () => {
+    it('returns true or false', () => {
+      should.equal(firebase.utils().isRunningInTestLab, false);
+    });
+  });
+});

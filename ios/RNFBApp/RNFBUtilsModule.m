@@ -1,4 +1,4 @@
-/*
+/**
  * Copyright (c) 2016-present Invertase Limited & Contributors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,9 +15,24 @@
  *
  */
 
-import { getFirebaseRoot } from './internal/registry/namespace';
+#import <React/RCTUtils.h>
+#import <Firebase/Firebase.h>
 
-export const firebase = getFirebaseRoot();
-export utils from './utils';
+#import "RNFBUtilsModule.h"
+#import "RNFBApp/RNFBSharedUtils.h"
 
-export default firebase;
+
+@implementation RNFBUtilsModule
+#pragma mark -
+#pragma mark Module Setup
+
+RCT_EXPORT_MODULE();
+
+- (dispatch_queue_t)methodQueue {
+    return dispatch_get_main_queue();
+}
+
+#pragma mark -
+#pragma mark Firebase Utils Methods
+
+@end
