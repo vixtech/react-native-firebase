@@ -68,7 +68,7 @@ describe('admob() RewardedAd', () => {
 
       i.onAdEvent(spy);
       i.load();
-      await Utils.spyToBeCalledOnceAsync(spy);
+      await Utils.spyToBeCalledOnceAsync(spy, 10000);
       i.loaded.should.eql(true);
 
       spy.getCall(0).args[0].should.eql('rewarded_loaded');
