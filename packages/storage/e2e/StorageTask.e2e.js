@@ -635,7 +635,7 @@ describe('storage() -> StorageTask', () => {
     });
   });
 
-  describe('pause() resume()', () => {
+  xdescribe('pause() resume()', () => {
     it('successfully pauses and resumes an upload', async function testRunner() {
       this.timeout(25000);
 
