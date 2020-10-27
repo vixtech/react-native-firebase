@@ -436,4 +436,23 @@ describe('firestore().collection().where()', () => {
 
     items.length.should.equal(1);
   });
+
+  it.only('should handle where clause after sort by', async () => {
+    const ref = firebase.firestore().collection(COLLECTION);
+
+    await ref.add({ status: 1 });
+    await ref.add({ status: 2 });
+    await ref.add({ status: 3 });
+
+    const items = [];
+    await ref
+      .orderBy('status', 'desc')
+      .where('status', '<=', 2)
+      .get()
+      .then($ => $.forEach(doc => items.push(doc.data())));
+
+    items.length.should.equal(2);
+    items[0].status.should.equal(2);
+    items[1].status.should.equal(1);
+  });
 });
